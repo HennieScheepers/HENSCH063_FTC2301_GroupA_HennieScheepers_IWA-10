@@ -53,11 +53,13 @@ const futureId = 9
 
 // Do not change code above this comment
 
+// added reconciliation day as new Date object
 holidays[0].date = new Date(`16 December ${currentYear}`)
 
+// Fixed the evaluation of the 9th holiday to output
 console.log(holidays.futureId !== undefined? holidays.futureId.name : `ID ${futureId} not created yet`)
 
-
+//added let to copied as it might change (user input)
 let copied = { 
     id: 6,
     name: 'X-mas Day',
@@ -66,8 +68,11 @@ let copied = {
 
 correctDate = copied.date
 isEarlier = copied.date < holidays[6].date
+
+//Fixed evaluation for isEarlier
 isEarlier ? console.log('New date is earlier:', isEarlier) : console.log('New date is earlier:', isEarlier)
 
+//Chaged or || operator to : in order to determine output values
 console.log(`ID change: ${copied.id !== holidays[6].id ? copied.id : 'false'}`)
 console.log(`Name change: ${copied.name !== holidays[6].name ? copied.name : 'false'}`)
 console.log(`Date change: ${copied.date !== holidays[6].date ? copied.date.toLocaleDateString(['en-gb']): 'false'}`)
@@ -97,7 +102,9 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date.getTime(),
 )
 
+// Used Date(0) to set to the beginning of epoch
 const firstHoliday = new Date(0)
+// Used .setUTCMilliseconds to convert timestamp to milliseconds from epoch
 firstHoliday.setUTCMilliseconds(firstHolidayTimestamp)
 const firstDay = firstHoliday.getDate()
 const firstMonth = firstHoliday.getMonth() + 1
@@ -107,6 +114,7 @@ lastHoliday.setUTCMilliseconds(lastHolidayTimestamp)
 const lastDay = lastHoliday.getDate()
 const lastMonth = lastHoliday.getMonth()
 
+//Evaluations to check if we need to add a zero before the day/month
 console.log(`${firstDay < 10 ? `0${firstDay}` : firstDay}/${firstMonth < 10 ? `0${firstMonth}` : firstMonth}/${currentYear}`)
 console.log(`${lastDay < 10 ? `0${lastDay}` : lastDay}/${lastMonth < 10 ? `0${lastMonth}` : lastMonth}/${currentYear}`)
 
