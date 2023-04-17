@@ -75,6 +75,7 @@ isEarlier ? console.log('New date is earlier:', isEarlier) : console.log('New da
 //Chaged or || operator to : in order to determine output values
 console.log(`ID change: ${copied.id !== holidays[6].id ? copied.id : 'false'}`)
 console.log(`Name change: ${copied.name !== holidays[6].name ? copied.name : 'false'}`)
+// Added en-gb to format time correctly
 console.log(`Date change: ${copied.date !== holidays[6].date ? copied.date.toLocaleDateString(['en-gb']): 'false'}`)
 
 
